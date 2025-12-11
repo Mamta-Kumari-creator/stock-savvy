@@ -17,6 +17,7 @@ export interface Supplier {
   invoiceNo: string;
   name: string;
   contact: string;
+  component: string;
   description: string;
 }
 
