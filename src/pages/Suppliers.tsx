@@ -14,6 +14,7 @@ const emptySupplier: Omit<Supplier, 'id'> = {
   invoiceNo: '',
   name: '',
   contact: '',
+  component: '',
   description: '',
 };
 
@@ -87,6 +88,14 @@ export default function Suppliers() {
               />
             </div>
             <div>
+              <Label>Component</Label>
+              <Input 
+                value={form.component} 
+                onChange={(e) => setForm({ ...form, component: e.target.value })}
+                placeholder="Component supplied"
+              />
+            </div>
+            <div>
               <Label>Description</Label>
               <Textarea 
                 value={form.description} 
@@ -119,6 +128,7 @@ export default function Suppliers() {
                   <TableHead>Invoice No.</TableHead>
                   <TableHead>Name</TableHead>
                   <TableHead>Contact</TableHead>
+                  <TableHead>Component</TableHead>
                   <TableHead>Description</TableHead>
                   <TableHead>Actions</TableHead>
                 </TableRow>
@@ -129,6 +139,7 @@ export default function Suppliers() {
                     <TableCell className="font-mono">{supplier.invoiceNo}</TableCell>
                     <TableCell className="font-medium">{supplier.name}</TableCell>
                     <TableCell>{supplier.contact}</TableCell>
+                    <TableCell>{supplier.component}</TableCell>
                     <TableCell className="text-muted-foreground max-w-[200px] truncate">{supplier.description}</TableCell>
                     <TableCell>
                       <div className="flex gap-1">

@@ -56,8 +56,8 @@ export const useInventoryStore = create<InventoryState>((set) => ({
     },
   ],
   suppliers: [
-    { id: '1', invoiceNo: '1001', name: 'Ajay', contact: '987654321', description: 'XYZ' },
-    { id: '2', invoiceNo: '1002', name: 'Ajay2', contact: '987654321', description: 'XYZ' },
+    { id: '1', invoiceNo: '1001', name: 'Ajay', contact: '987654321', component: 'Mobile Parts', description: 'XYZ' },
+    { id: '2', invoiceNo: '1002', name: 'Ajay2', contact: '987654321', component: 'Electronics', description: 'XYZ' },
   ],
   categories: [
     { id: '1', name: 'Electronics' },
