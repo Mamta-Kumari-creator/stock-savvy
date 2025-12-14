@@ -36,13 +36,9 @@ export interface Product {
   status: 'Active' | 'Inactive';
 }
 
-export interface Sale {
-  id: string;
-  productId: string;
-  productName: string;
-  quantity: number;
-  price: number;
-  total: number;
-  date: string;
-  customer: string;
+export interface ComponentParts {
+  microchips: number;
+  circuitBoards: number;
+  processors: number;
+  storageUnits: number;
 }
