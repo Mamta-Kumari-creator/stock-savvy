@@ -17,7 +17,6 @@ const navItems = [
   { icon: Truck, label: 'Suppliers', path: '/suppliers' },
   { icon: Tags, label: 'Categories', path: '/categories' },
   { icon: Package, label: 'Products', path: '/products' },
-  { icon: ShoppingCart, label: 'Sales', path: '/sales' },
 ];
 
 export function Sidebar() {

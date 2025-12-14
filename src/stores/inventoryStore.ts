@@ -1,12 +1,12 @@
 import { create } from 'zustand';
-import { Employee, Supplier, Category, Product, Sale } from '@/types/inventory';
+import { Employee, Supplier, Category, Product, ComponentParts } from '@/types/inventory';
 
 interface InventoryState {
   employees: Employee[];
   suppliers: Supplier[];
   categories: Category[];
   products: Product[];
-  sales: Sale[];
+  components: ComponentParts;
   
   addEmployee: (employee: Employee) => void;
   updateEmployee: (id: string, employee: Partial<Employee>) => void;
@@ -23,7 +23,7 @@ interface InventoryState {
   updateProduct: (id: string, product: Partial<Product>) => void;
   deleteProduct: (id: string) => void;
   
-  addSale: (sale: Sale) => void;
+  updateComponents: (components: ComponentParts) => void;
 }
 
 export const useInventoryStore = create<InventoryState>((set) => ({
@@ -68,9 +68,12 @@ export const useInventoryStore = create<InventoryState>((set) => ({
     { id: '1', category: 'Mobile', supplier: 'Ajay', name: 'Oppo X3', price: 69000, qty: 45, status: 'Active' },
     { id: '2', category: 'Mobile', supplier: 'Ajay', name: 'Poco X3', price: 21000, qty: 100, status: 'Inactive' },
   ],
-  sales: [
-    { id: '1', productId: '1', productName: 'Oppo X3', quantity: 2, price: 69000, total: 138000, date: '2021-04-23', customer: 'John Doe' },
-  ],
+  components: {
+    microchips: 150,
+    circuitBoards: 75,
+    processors: 50,
+    storageUnits: 100,
+  },
   
   addEmployee: (employee) => set((state) => ({ employees: [...state.employees, employee] })),
   updateEmployee: (id, employee) => set((state) => ({
@@ -93,5 +96,5 @@ export const useInventoryStore = create<InventoryState>((set) => ({
   })),
   deleteProduct: (id) => set((state) => ({ products: state.products.filter((p) => p.id !== id) })),
   
-  addSale: (sale) => set((state) => ({ sales: [...state.sales, sale] })),
+  updateComponents: (components) => set({ components }),
 }));
