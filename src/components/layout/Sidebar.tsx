@@ -60,11 +60,6 @@ export function Sidebar() {
           <span className="font-medium">Exit</span>
         </button>
       </div>
-      
-      <div className="p-4 text-center border-t border-sidebar-border">
-        <p className="text-xs text-muted-foreground">Developed By</p>
-        <p className="text-sm font-medium text-primary">Rangesh</p>
-      </div>
     </aside>
   );
 }
