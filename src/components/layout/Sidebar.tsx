@@ -5,7 +5,7 @@ import {
   Truck, 
   Tags, 
   Package, 
-  ShoppingCart,
+  Cpu,
   LogOut,
   Box
 } from 'lucide-react';
@@ -17,6 +17,7 @@ const navItems = [
   { icon: Truck, label: 'Suppliers', path: '/suppliers' },
   { icon: Tags, label: 'Categories', path: '/categories' },
   { icon: Package, label: 'Products', path: '/products' },
+  { icon: Cpu, label: 'Components', path: '/components' },
 ];
 
 export function Sidebar() {
