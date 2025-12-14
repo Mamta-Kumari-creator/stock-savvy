@@ -36,9 +36,8 @@ export interface Product {
   status: 'Active' | 'Inactive';
 }
 
-export interface ComponentParts {
-  microchips: number;
-  circuitBoards: number;
-  processors: number;
-  storageUnits: number;
+export interface ComponentPart {
+  id: string;
+  name: string;
+  quantity: number;
 }

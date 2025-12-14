@@ -1,12 +1,12 @@
 import { create } from 'zustand';
-import { Employee, Supplier, Category, Product, ComponentParts } from '@/types/inventory';
+import { Employee, Supplier, Category, Product, ComponentPart } from '@/types/inventory';
 
 interface InventoryState {
   employees: Employee[];
   suppliers: Supplier[];
   categories: Category[];
   products: Product[];
-  components: ComponentParts;
+  componentParts: ComponentPart[];
   
   addEmployee: (employee: Employee) => void;
   updateEmployee: (id: string, employee: Partial<Employee>) => void;
@@ -23,7 +23,8 @@ interface InventoryState {
   updateProduct: (id: string, product: Partial<Product>) => void;
   deleteProduct: (id: string) => void;
   
-  updateComponents: (components: ComponentParts) => void;
+  addComponentPart: (part: ComponentPart) => void;
+  deleteComponentPart: (id: string) => void;
 }
 
 export const useInventoryStore = create<InventoryState>((set) => ({
@@ -68,12 +69,12 @@ export const useInventoryStore = create<InventoryState>((set) => ({
     { id: '1', category: 'Mobile', supplier: 'Ajay', name: 'Oppo X3', price: 69000, qty: 45, status: 'Active' },
     { id: '2', category: 'Mobile', supplier: 'Ajay', name: 'Poco X3', price: 21000, qty: 100, status: 'Inactive' },
   ],
-  components: {
-    microchips: 150,
-    circuitBoards: 75,
-    processors: 50,
-    storageUnits: 100,
-  },
+  componentParts: [
+    { id: '1', name: 'Microchips', quantity: 150 },
+    { id: '2', name: 'Circuit Boards', quantity: 75 },
+    { id: '3', name: 'Processors', quantity: 50 },
+    { id: '4', name: 'Storage Units', quantity: 100 },
+  ],
   
   addEmployee: (employee) => set((state) => ({ employees: [...state.employees, employee] })),
   updateEmployee: (id, employee) => set((state) => ({
@@ -96,5 +97,6 @@ export const useInventoryStore = create<InventoryState>((set) => ({
   })),
   deleteProduct: (id) => set((state) => ({ products: state.products.filter((p) => p.id !== id) })),
   
-  updateComponents: (components) => set({ components }),
+  addComponentPart: (part) => set((state) => ({ componentParts: [...state.componentParts, part] })),
+  deleteComponentPart: (id) => set((state) => ({ componentParts: state.componentParts.filter((p) => p.id !== id) })),
 }));
